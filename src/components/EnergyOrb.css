@@ -1,0 +1,169 @@
+/* ==========================================================================
+   EnergyOrb Styling - Cyan, Teal, Ice-Blue, White. NO purple/pink.
+   ========================================================================== */
+
+.energy-orb-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.energy-orb-container:hover {
+  transform: scale(1.025);
+}
+
+.energy-orb-container:active {
+  transform: scale(0.98);
+}
+
+.orb-canvas {
+  width: 320px;
+  height: 320px;
+  position: relative;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Ambient Outer Aura */
+.orb-glow-aura {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.state-idle .orb-glow-aura {
+  box-shadow: 0 0 70px rgba(0, 242, 254, 0.22), inset 0 0 40px rgba(0, 229, 201, 0.15);
+}
+
+.state-listening .orb-glow-aura {
+  box-shadow: 0 0 90px rgba(0, 229, 201, 0.4), inset 0 0 50px rgba(0, 242, 254, 0.25);
+  animation: aura-breathe 1.5s infinite ease-in-out;
+}
+
+.state-thinking .orb-glow-aura {
+  box-shadow: 0 0 100px rgba(112, 214, 255, 0.45), inset 0 0 60px rgba(203, 238, 255, 0.3);
+  animation: aura-breathe 0.8s infinite ease-in-out;
+}
+
+.state-speaking .orb-glow-aura {
+  box-shadow: 0 0 95px rgba(0, 242, 254, 0.4), inset 0 0 55px rgba(0, 229, 201, 0.25);
+  animation: aura-breathe 1.2s infinite ease-in-out;
+}
+
+@keyframes aura-breathe {
+  0%, 100% {
+    transform: scale(0.98);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Concentric Gyroscopic Rings */
+.orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  pointer-events: none;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.ring-1 {
+  width: 250px;
+  height: 250px;
+  border-top-color: rgba(0, 242, 254, 0.45);
+  border-bottom-color: rgba(0, 229, 201, 0.2);
+  animation: spin-slow 18s linear infinite;
+}
+
+.ring-2 {
+  width: 280px;
+  height: 280px;
+  border-left-color: rgba(112, 214, 255, 0.35);
+  border-right-color: rgba(0, 242, 254, 0.2);
+  border-style: dashed;
+  animation: spin-reverse 24s linear infinite;
+}
+
+.ring-3 {
+  width: 310px;
+  height: 310px;
+  border-top-color: rgba(203, 238, 255, 0.25);
+  border-bottom-color: rgba(0, 242, 254, 0.15);
+  animation: spin-slow 32s linear infinite;
+}
+
+/* State changes for rings */
+.state-listening .ring-1 {
+  border-top-color: var(--teal-accent);
+  border-bottom-color: var(--cyan-primary);
+  animation-duration: 9s;
+}
+
+.state-thinking .ring-1 {
+  border-top-color: var(--white);
+  border-bottom-color: var(--ice-blue);
+  animation-duration: 5s;
+}
+.state-thinking .ring-2 {
+  border-left-color: var(--cyan-primary);
+  animation-duration: 7s;
+}
+
+.state-speaking .ring-1 {
+  border-top-color: var(--cyan-primary);
+  border-bottom-color: var(--teal-accent);
+  animation-duration: 10s;
+}
+
+/* Floating Status Pill */
+.orb-status-pill {
+  position: absolute;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(6, 20, 36, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--cyan-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 4;
+}
+
+.orb-status-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: var(--white-soft);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .energy-orb-container {
+    width: 260px;
+    height: 260px;
+  }
+  .orb-canvas {
+    width: 260px;
+    height: 260px;
+  }
+  .ring-1 { width: 210px; height: 210px; }
+  .ring-2 { width: 235px; height: 235px; }
+  .ring-3 { width: 255px; height: 255px; }
+}
