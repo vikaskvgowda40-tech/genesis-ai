@@ -44,6 +44,17 @@
   transform: translateY(-1px);
 }
 
+.live-vision-chip {
+  border-color: var(--cyan-primary);
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--white);
+}
+
+.live-vision-chip:hover {
+  background: rgba(0, 242, 254, 0.22);
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.35);
+}
+
 /* Image preview pill */
 .image-preview-bar {
   display: flex;
@@ -161,6 +172,17 @@
   color: var(--white);
 }
 
+.live-vision-btn {
+  color: var(--cyan-primary);
+}
+
+.live-vision-btn.active {
+  background: rgba(0, 242, 254, 0.25);
+  border-color: var(--cyan-primary);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(0, 242, 254, 0.5);
+}
+
 .mic-btn.listening {
   background: rgba(0, 229, 201, 0.25);
   border-color: var(--teal-accent);
@@ -232,3 +254,193 @@
   cursor: not-allowed;
   box-shadow: none;
 }
+
+.spinner-icon {
+  animation: spin-slow 1s linear infinite;
+  color: var(--bg-darkest);
+}
+
+/* Voice Listening Live Banner */
+.voice-listening-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: rgba(0, 229, 201, 0.12);
+  border: 1px solid var(--teal-accent);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 229, 201, 0.25);
+  animation: float-subtle 3s ease-in-out infinite;
+}
+
+.listening-wave-anim {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+}
+
+.wave-line {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--teal-accent);
+  animation: wave-line-bounce 1s infinite ease-in-out;
+}
+
+.wave-line.w1 { height: 8px; animation-delay: 0.1s; }
+.wave-line.w2 { height: 16px; animation-delay: 0.2s; }
+.wave-line.w3 { height: 12px; animation-delay: 0.3s; }
+.wave-line.w4 { height: 18px; animation-delay: 0.15s; }
+
+@keyframes wave-line-bounce {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+  50% { transform: scaleY(1.2); opacity: 1; }
+}
+
+.listening-banner-text {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--white);
+  font-family: var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cancel-voice-btn {
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  background: rgba(0, 229, 201, 0.2);
+  border: 1px solid var(--teal-accent);
+  color: var(--white);
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  transition: var(--transition-smooth);
+}
+
+.cancel-voice-btn:hover {
+  background: rgba(0, 229, 201, 0.35);
+  box-shadow: 0 0 10px rgba(0, 229, 201, 0.4);
+}
+
+/* Speech Notice / Error Banner */
+.speech-notice-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: rgba(8, 26, 44, 0.95);
+  border: 1px solid rgba(112, 214, 255, 0.45);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+.speech-notice-banner .notice-icon {
+  color: var(--ice-blue);
+  flex-shrink: 0;
+}
+
+.speech-notice-banner .notice-text {
+  flex: 1;
+  font-size: 0.8rem;
+  color: var(--white-soft);
+  line-height: 1.4;
+}
+
+.speech-notice-banner .notice-dismiss-btn {
+  background: transparent;
+  border: none;
+  color: var(--white-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.speech-notice-banner .notice-dismiss-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+/* ACT Mode Button */
+.act-mode-btn {
+  position: relative;
+}
+
+.act-mode-btn.active {
+  background: rgba(0, 229, 201, 0.22);
+  border-color: var(--teal-accent);
+  color: var(--teal-accent);
+  box-shadow: 0 0 16px rgba(0, 229, 201, 0.4);
+}
+
+.act-mode-indicator-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal-accent);
+  box-shadow: 0 0 6px var(--teal-accent);
+  display: none;
+}
+
+.act-mode-btn.active .act-mode-indicator-dot {
+  display: block;
+  animation: pulse-dot 1.2s infinite ease-in-out;
+}
+
+/* ACT Mode Active Banner */
+.act-mode-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 14px;
+  background: rgba(0, 229, 201, 0.08);
+  border: 1px solid rgba(0, 229, 201, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0, 229, 201, 0.15);
+}
+
+.act-mode-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.act-banner-icon {
+  color: var(--teal-accent);
+  flex-shrink: 0;
+}
+
+.act-banner-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--teal-accent);
+  letter-spacing: 0.8px;
+}
+
+.act-banner-desc {
+  font-size: 0.76rem;
+  color: var(--white-muted);
+}
+
+.act-banner-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--cyan-primary);
+  background: rgba(0, 242, 254, 0.12);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  white-space: nowrap;
+}
+
+

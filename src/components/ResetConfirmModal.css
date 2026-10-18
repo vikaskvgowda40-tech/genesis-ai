@@ -1,0 +1,199 @@
+/* ==========================================================================
+   ResetConfirmModal Styling - Cybernetic Reset Confirmation HUD
+   Palette: Cyan (#00f2fe), Teal (#00e5c9), Ice Blue (#70d6ff), Dark Navy
+   STRICT RULE: NO PURPLE OR PINK GRADIENTS
+   ========================================================================== */
+
+.reset-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 14, 0.84);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: reset-fade-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes reset-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.reset-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(8, 24, 42, 0.96), rgba(2, 10, 22, 0.98));
+  border: 1px solid var(--cyan-border);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 242, 254, 0.2);
+  overflow: hidden;
+}
+
+.reset-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--cyan-border);
+  background: rgba(4, 14, 28, 0.7);
+}
+
+.reset-title-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reset-icon-halo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(0, 242, 254, 0.12);
+  border: 1px solid var(--cyan-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.3);
+}
+
+.reset-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  margin: 0;
+  font-family: var(--font-mono);
+  background: linear-gradient(90deg, #ffffff, var(--ice-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reset-subtitle {
+  font-size: 0.72rem;
+  color: var(--teal-primary);
+  margin: 2px 0 0 0;
+  letter-spacing: 0.02em;
+}
+
+.reset-close-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--white-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.reset-close-btn:hover {
+  background: rgba(0, 242, 254, 0.12);
+  border-color: var(--cyan-border);
+  color: var(--cyan-primary);
+}
+
+.reset-modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reset-warning-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(112, 214, 255, 0.1);
+  border: 1px solid var(--ice-blue);
+}
+
+.reset-warning-text {
+  font-size: 0.88rem;
+  color: var(--white);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.reset-details-list {
+  background: rgba(4, 12, 24, 0.6);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reset-details-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--cyan-primary);
+  letter-spacing: 0.06em;
+}
+
+.reset-details-list ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--white-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.reset-details-list li strong {
+  color: var(--white);
+}
+
+.reset-preservation-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(0, 242, 254, 0.15);
+  color: var(--teal-primary);
+  font-size: 0.74rem;
+  line-height: 1.4;
+}
+
+.reset-preservation-note strong {
+  color: #ffffff;
+}
+
+.reset-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px;
+  background: rgba(4, 14, 28, 0.85);
+  border-top: 1px solid var(--cyan-border);
+}
+
+.btn-confirm-reset {
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.3);
+}
+
+.btn-confirm-reset:hover {
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.5);
+}

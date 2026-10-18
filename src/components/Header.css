@@ -130,6 +130,60 @@
   font-size: 0.8rem;
 }
 
+.speaking-stop-btn {
+  background: rgba(112, 214, 255, 0.18);
+  border-color: var(--ice-blue);
+  color: var(--white);
+  box-shadow: 0 0 15px rgba(112, 214, 255, 0.4);
+  animation: pulse-dot 1.2s infinite ease-in-out;
+}
+
+.muted-btn {
+  opacity: 0.75;
+  color: var(--text-dim);
+}
+
+/* Multilingual Language Selector */
+.language-selector-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 26, 44, 0.75);
+  border: 1px solid var(--cyan-border);
+  border-radius: 10px;
+  padding: 2px 8px 2px 10px;
+  transition: var(--transition-smooth);
+}
+
+.language-selector-wrap:hover {
+  border-color: var(--cyan-primary);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.25);
+}
+
+.lang-icon {
+  flex-shrink: 0;
+}
+
+.language-dropdown-select {
+  background: transparent;
+  border: none;
+  color: var(--cyan-primary);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  padding: 4px 0;
+}
+
+.language-dropdown-select option {
+  background: #040c18;
+  color: #ffffff;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  padding: 6px;
+}
+
 @media (max-width: 950px) {
   .state-switcher-bar {
     display: none;

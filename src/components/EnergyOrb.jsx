@@ -69,9 +69,10 @@ export default function EnergyOrb({ state = 'idle', audioLevel = 0, onClick }) {
         coreGlowIntensity = 0.85 + Math.sin(time * 6) * 0.15;
       } else if (state === 'speaking') {
         speedMultiplier = 1.8;
-        const speechCadence = Math.abs(Math.sin(time * 4)) * 16;
+        const speechCadence = (Math.abs(Math.sin(time * 4)) * 8) + (audioLevel * 16);
         waveAmplitude = 10 + speechCadence;
-        coreGlowIntensity = 0.75 + (speechCadence / 30);
+        coreGlowIntensity = 0.72 + (audioLevel * 0.28);
+        ringScale = 1.03 + (audioLevel * 0.12);
       }
 
       // 1. Draw outer ambient atmospheric glow (Ice Blue / Cyan)
